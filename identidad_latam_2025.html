@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Identidad católica en América Latina (2025)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 40px;
+    }
+    canvas {
+      max-width: 720px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Identidad católica en América Latina (2025)</h2>
+  <canvas id="grafico"></canvas>
+  
+        <p style='font-size: 14px; color: #444; margin-top: 30px;'>
+          <strong>Fuente:</strong> Anuario Estadístico de la Iglesia 2025, Pew Research Center 2025, Latinobarómetro 2024
+        </p>
+        
+  <script>
+    const ctx = document.getElementById('grafico').getContext('2d');
+    new Chart(ctx, {
+      type: 'doble_bar',
+      data: {
+        labels: ['Perú', 'Brasil', 'México', 'Colombia', 'Argentina', 'Chile'],
+        datasets: [
+        {
+          label: 'Millones de católicos',
+          data: [],
+          backgroundColor: [],
+          borderRadius: 6
+        }
+        ,
+        {
+          label: "Criados como católicos (%)", data: [82, 71, 88, 99, 82, 83], backgroundColor: "#0077b6"
+        },
+        {
+          label: "Actualmente católicos (%)", data: [64, 50, 68, 74, 63, 54], backgroundColor: "#ff595e"
+        }
+        
+        {
+          
+        },
+        {
+          
+        }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return context.dataset.label + ': ' + context.parsed + (context.chart.config._config.type === 'doughnut' ? '%' : ' millones');
+              }
+            }
+          },
+          legend: {
+            position: 'top'
+          }
+        },
+        animation: {
+          duration: 1500,
+          easing: 'easeOutBounce'
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Millones de personas'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

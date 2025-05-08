@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Católicos en el mundo 2025 por región</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 40px;
+    }
+    canvas {
+      max-width: 720px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Católicos en el mundo 2025 por región</h2>
+  <canvas id="grafico"></canvas>
+  
+        <p style='font-size: 14px; color: #444; margin-top: 30px;'>
+          <strong>Fuente:</strong> Anuario Estadístico de la Iglesia 2025, Pew Research Center 2025, Latinobarómetro 2024
+        </p>
+        
+  <script>
+    const ctx = document.getElementById('grafico').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['América', 'Europa', 'África', 'Asia', 'Oceanía'],
+        datasets: [
+        {
+          label: 'Millones de católicos',
+          data: [672, 281, 281, 155, 10],
+          backgroundColor: ['#0077b6', '#00b4d8', '#90e0ef', '#48cae4', '#0096c7'],
+          borderRadius: 6
+        }
+        
+        {
+          
+        },
+        {
+          
+        }
+        
+        {
+          
+        },
+        {
+          
+        }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return context.dataset.label + ': ' + context.parsed + (context.chart.config._config.type === 'doughnut' ? '%' : ' millones');
+              }
+            }
+          },
+          legend: {
+            position: 'top'
+          }
+        },
+        animation: {
+          duration: 1500,
+          easing: 'easeOutBounce'
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Millones de personas'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

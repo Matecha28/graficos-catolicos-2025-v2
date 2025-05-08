@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Distribución mundial de católicos en 2025 (%)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 40px;
+    }
+    canvas {
+      max-width: 720px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Distribución mundial de católicos en 2025 (%)</h2>
+  <canvas id="grafico"></canvas>
+  
+        <p style='font-size: 14px; color: #444; margin-top: 30px;'>
+          <strong>Fuente:</strong> Anuario Estadístico de la Iglesia 2025, Pew Research Center 2025, Latinobarómetro 2024
+        </p>
+        
+  <script>
+    const ctx = document.getElementById('grafico').getContext('2d');
+    new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['América', 'Europa', 'África', 'Asia', 'Oceanía'],
+        datasets: [
+        {
+          label: '% del total',
+          data: [47.8, 20, 20, 11, 1],
+          backgroundColor: ['#ff595e', '#ffca3a', '#8ac926', '#1982c4', '#6a4c93'],
+          borderRadius: 6
+        }
+        
+        {
+          
+        },
+        {
+          
+        }
+        
+        {
+          
+        },
+        {
+          
+        }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return context.dataset.label + ': ' + context.parsed + (context.chart.config._config.type === 'doughnut' ? '%' : ' millones');
+              }
+            }
+          },
+          legend: {
+            position: 'top'
+          }
+        },
+        animation: {
+          duration: 1500,
+          easing: 'easeOutBounce'
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: ''
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
