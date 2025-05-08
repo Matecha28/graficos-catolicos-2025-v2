@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Explora la población católica - Selector de gráfico</title>
+  <script>
+    function mostrarGrafico(valor) {
+      const urls = {
+        'region2025': 'catolicos_por_region_2025.html',
+        'distribucion2025': 'distribucion_mundial_2025.html',
+        'latam2025': 'identidad_latam_2025.html',
+        'comparativo': 'comparativo_2024_2025.html'
+      };
+      document.getElementById('iframe').src = urls[valor];
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: #f8f9fa;
+      text-align: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #212529;
+      font-size: 1.8rem;
+    }
+    select {
+      font-size: 1rem;
+      padding: 0.5rem;
+      margin-top: 1rem;
+    }
+    iframe {
+      width: 95%;
+      height: 560px;
+      border: none;
+      margin-top: 2rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Visualizador de datos sobre población católica (2024–2025)</h1>
+  <label for="grafico">Selecciona un gráfico:</label>
+  <select id="grafico" onchange="mostrarGrafico(this.value)">
+    <option value="region2025">Católicos por región (2025)</option>
+    <option value="distribucion2025">Distribución mundial (2025)</option>
+    <option value="latam2025">Identidad católica en América Latina</option>
+    <option value="comparativo">Comparativo regional 2024 vs 2025</option>
+  </select>
+  <iframe id="iframe" src="catolicos_por_region_2025.html"></iframe>
+</body>
+</html>
